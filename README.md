@@ -8,7 +8,9 @@
 #### Setting up kube config
 > aws eks --region YOUR_REGION_NAME update-kubeconfig --name YOUR_CLUSTER_NAME
 
-##### Create any random IAM user, to be an admin of EKS cluster we don't need to attach any policy to the user. Configure aws cli Access and Secret key.
+##### Create any random IAM user. Configure aws cli Access and Secret key. 
+
+**Note:** To be an admin of EKS cluster we don't need to attach any IAM policy to the user but for other AWS spefic things we  need to attach policies accordingly. 
 **System:masters** is a group which is hardcoded into the Kubernetes API server source code as having unrestricted rights to the Kubernetes API server.
 To grant additional AWS users or roles the ability to interact with your cluster, you must edit the aws-auth ConfigMap within Kubernetes. Verify the user's details 
 > aws sts get-caller-identity
